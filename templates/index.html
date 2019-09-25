@@ -3,9 +3,13 @@
 {% block body %}
 
     <ul>
-        {% for item in notes %}
-            <li>{{ item }}</li>
-        {% endfor %}
+        {% if notes %}
+            {% for item in notes %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        {% else %}
+            <p>You have no notes</p>
+        {% endif %}
     </ul>
 
     <form action="{{ url_for('index') }}" method="post">
